@@ -541,3 +541,14 @@ Migrating to AddExtraFieldsToUser (20140225122313)
   [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20140225122313')[0m
   [1m[35m (21.3ms)[0m  COMMIT
   [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20140225101238)
+Migrating to AddExtraFieldsToUser (20140225122313)
+Migrating to ChangeAccessTokenTypeFromStringToText (20140225134532)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ALTER COLUMN "access_token" TYPE text[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20140225134532')
+  [1m[36m (7.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
