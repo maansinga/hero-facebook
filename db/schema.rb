@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225134532) do
+ActiveRecord::Schema.define(:version => 20140225135037) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20140225134532) do
     t.string   "location_name"
     t.string   "hometown_name"
     t.string   "gender"
-    t.string   "bio"
+    t.text     "bio"
   end
 
 end

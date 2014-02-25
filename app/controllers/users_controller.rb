@@ -15,7 +15,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    id=params[:id]
+
+    if id.to_i==0
+      @user=User.find_by_username(id)
+    else
+      @user = User.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
