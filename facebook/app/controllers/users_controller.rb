@@ -1,3 +1,5 @@
+require 'net/http'
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
@@ -42,20 +44,40 @@ class UsersController < ApplicationController
   def create
     access_token=params[:user][:access_token]
     uri= URI.parse('https://graph.facebook.com/me')
-    args= {:access_token=>access_token,:fields=>'username'}
+    args= {:access_token=>access_token}
     uri.query=URI.encode_www_form(args)
     http=Net::HTTP.new(uri.host,uri.port)
     http.use_ssl=true
+    username=''
+    name=''
+    fb_id=''
+    location_name=''
+    hometown_name=''
+    gender=''
+    bio=''
     begin
       request=Net::HTTP::Get.new(uri.request_uri)
       response=http.request(request)
 
       parsed_data=JSON.parse response.body
+      puts parsed_data
       username=parsed_data['username']
+      name=parsed_data['name']
+      fb_id=parsed_data['id']
+      location_name=parsed_data['location']['name']
+      hometown_name=parsed_data['hometown']['name']
+      gender=parsed_data['gender']
+      bio=parsed_data['bio']
     end
     #This token should be used to fetch the user's data
     @user = User.new(params[:user])
     @user.username=username
+    @user.name=name
+    @user.fb_id=fb_id
+    @user.location_name=location_name
+    @user.hometown_name=hometown_name
+    @user.gender=gender
+    @user.bio=bio
 
     respond_to do |format|
       if @user.save

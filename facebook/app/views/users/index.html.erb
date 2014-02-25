@@ -3,7 +3,10 @@
 <table>
   <tr>
     <th>Username</th>
-    <th>Access token</th>
+    <th>Gender</th>
+    <th>Fb ID</th>
+    <th>Location</th>
+    <th>Hometown</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +15,10 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.username %></td>
-    <td><%= user.access_token %></td>
+    <td><%= user.gender %></td>
+    <td><%= user.fb_id %></td>
+    <td><%= user.location_name %></td>
+    <td><%= user.hometown_name %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -10,6 +10,35 @@
   <%= @user.access_token %>
 </p>
 
+<p>
+  <b>FB id:</b>
+  <%= @user.fb_id %>
+</p>
+
+<p>
+  <b>Fullname:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Access token:</b>
+  <%= @user.gender %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @user.location_name %>
+</p>
+
+<p>
+  <b>Hometown:</b>
+  <%= @user.hometown_name %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @user.bio %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
